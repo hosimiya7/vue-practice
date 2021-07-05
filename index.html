@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span v-if="three">{{ Message }} {{ msg }}</span>
+        <div>{{ counter }}</div>
+        <button v-on:click="countUp">count up</button>
+        <input v-model="msg">
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // let app = new Vue({
+        //     // どこのhtmlに結びつけるか
+        //     el: "#app",
+        //     // 変数定義
+        //     data: {
+        //         msg: "aaaaaa"
+        //     }
+        // })
+    // オブジェクトを代入する…？
+    let message = {
+        data(){
+            return {
+                msg: "aaaa",
+                Message: "12345",
+                counter: 0,
+                three: false
+            }
+        },
+        methods: {
+            countUp(){
+                this.counter++
+                this.three = this.counter === 3
+            }
+        }
+    }
+    Vue.createApp(message).mount("#app")
+
+    </script>
+</body>
+</html>
